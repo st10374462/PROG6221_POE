@@ -6,18 +6,17 @@
         public double Quantity { get; set; }
         public string Unit { get; }
         public double Calories { get; }
-        public string FoodGroup { get; }
+        public FoodGroup SelectedFoodGroup { get; }
 
         private double originalQuantity;
 
-        public Ingredient(string name, double quantity, string unit, double calories, string foodGroup)
+        public Ingredient(string? name, double quantity, string? unit, double calories, FoodGroup selectedFoodGroup)
         {
             Name = name;
             Quantity = quantity;
             Unit = unit;
             Calories = calories;
-            FoodGroup = foodGroup;
-            originalQuantity = quantity;
+            SelectedFoodGroup = selectedFoodGroup;
         }
 
         public void Scale(double factor)

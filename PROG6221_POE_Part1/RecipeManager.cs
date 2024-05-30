@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 
 namespace PROG6221_POE_Part1
 {
+    public enum FoodGroup
+    {
+        StarchyFoods = 1,
+        VegetablesAndFruits,
+        DryBeansPeasLentilsSoya,
+        ChickenFishMeatEggs,
+        MilkAndDairyProducts,
+        FatsAndOil,
+        Water
+    }
     internal class RecipeManager
     {
         private List<Recipe> recipes;

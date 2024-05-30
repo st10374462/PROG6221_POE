@@ -32,10 +32,15 @@ namespace PROG6221_POE_Part1
                 string unit = Console.ReadLine();
                 Console.Write("Calories: ");
                 double calories = GetValidDoubleInput();
-                Console.Write("Food Group: ");
-                string foodGroup = Console.ReadLine();
 
-                ingredients.Add(new Ingredient(name, quantity, unit, calories, foodGroup));
+                Console.WriteLine("Select the food group:");
+                foreach (FoodGroup foodGroup in Enum.GetValues(typeof(FoodGroup)))
+                {
+                    Console.WriteLine($"{(int)foodGroup}. {foodGroup}");
+                }
+                FoodGroup selectedFoodGroup = (FoodGroup)GetValidIntInput();
+
+                ingredients.Add(new Ingredient(name, quantity, unit, calories, selectedFoodGroup));
             }
 
             Console.Write("\nEnter the number of steps: ");
@@ -56,7 +61,7 @@ namespace PROG6221_POE_Part1
             Console.WriteLine("Ingredients:");
             foreach (var ingredient in ingredients)
             {
-                Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})");
+                Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name} ({ingredient.Calories} calories, {ingredient.SelectedFoodGroup})");
             }
 
             Console.WriteLine("\nSteps:");
